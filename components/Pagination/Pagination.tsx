@@ -19,7 +19,6 @@ export default function Pagination({ page, total, onChange }: PaginationProps) {
       activeClassName={css.active}
       onPageChange={({ selected }) => onChange(selected + 1)}
       forcePage={page - 1}
-      
     />
   );
 }

@@ -6,7 +6,6 @@ import type { NewNoteData } from "../../types/note";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addNote } from "@/lib/api";
 
-
 const NoteFormSchema = Yup.object().shape({
   title: Yup.string()
     .min(3, "Must be at least 3 characters")

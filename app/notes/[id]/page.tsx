@@ -7,17 +7,17 @@ import {
 import NoteDetailsClient from "./NoteDetails.client";
 
 type Props = {
-  params: Promise<{ noteId: string }>;
+  params: Promise<{ id: string }>;
 };
 
 const NoteDetails = async ({ params }: Props) => {
-  const { noteId } = await params;
-  // console.log('note id:', noteId);
+  const { id } = await params;
+  // console.log('note id:', id);
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ["note", noteId],
-    queryFn: () => fetchNoteById(noteId),
+    queryKey: ["note", id],
+    queryFn: () => fetchNoteById(id),
   });
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
